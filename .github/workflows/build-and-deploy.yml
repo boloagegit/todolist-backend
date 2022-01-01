@@ -65,6 +65,6 @@ jobs:
         with:
           app-name: 'boloage-todolist-backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9BA0E62ACBE74294B4445061D9BB39A6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5B54D961712643BB953B1AC7F980097D }}
           package: '*.jar'
   
