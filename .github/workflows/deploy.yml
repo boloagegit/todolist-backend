@@ -3,36 +3,11 @@
 
 name: Build and deploy WAR app to Azure Web App - boloage-todolist-backend
 
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Java version
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-
-      - name: Build with Maven
-        run: mvn clean install
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.war'
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -50,4 +25,4 @@ jobs:
           app-name: 'boloage-todolist-backend'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9BA0E62ACBE74294B4445061D9BB39A6 }}
-          package: '*.war'
+          package: '*.jar'
