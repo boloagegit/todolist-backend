@@ -49,6 +49,10 @@ dependencies {
     testImplementation("com.ninja-squad:springmockk:3.0.1")
 }
 
+tasks.getByName<Jar>("jar") {
+    enabled = false
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
