@@ -26,7 +26,7 @@ class ApplicationConfiguration {
     }
 
     private fun getApiInfo(): ApiInfo {
-        val contact = Contact("Abner Chiu", "http://xxx.com", "boloage@gmail.com")
+        val contact = Contact("Abner Chiu", "https://github.com/boloagegit", "boloage@gmail.com")
         return ApiInfoBuilder()
                 .title("To-Do list Api Document")
                 .version("1.0.0")
