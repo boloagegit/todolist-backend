@@ -1,5 +1,19 @@
 version: '3'
 services:
+  web:
+    image: boloagegit/todolist-backend:${TAG:-latest}
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "5503:5505"
+    container_name: todolist-backend
+    links:
+      - "db:db"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db/todolist
+      SPRING_DATASOURCE_USERNAME: todolist
+      SPRING_DATASOURCE_PASSWORD: 123456
   db:
     image: 'mariadb:10'
     ports:
@@ -16,6 +30,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-p 123456"]
       retries: 3
       timeout: 5s
+    container_name: todolist-db
 volumes:
   todolistdb:
     driver: local
