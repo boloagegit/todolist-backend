@@ -1,5 +1,5 @@
 # todolist-backend
-A to-do list example backend develop by spring boot with kotlin.
+A simple to-do list backend example project develop by spring boot with kotlin.
 
 ## Build Step
 
@@ -7,6 +7,16 @@ A to-do list example backend develop by spring boot with kotlin.
 # build by gradle
 gradle build
 
-# build by docker-compose
+# build by docker-compos
 docker compose up -d
 ```
+
+## Tech stack
+- spring boot v2.5
+- kotlin
+- gradle
+- mockk
+- swagger2
+
+## Note!
+Because the developer himself uses the macbook m1, the base image preset by the dockerfile uses the ARM architecture, please adjust it according to your own development environment
