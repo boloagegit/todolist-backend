@@ -34,6 +34,8 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-kotlin:1.5.0")
     implementation("me.paulschwarz:spring-dotenv:2.4.1")
 
+    implementation("io.arrow-kt:arrow-core:1.0.1")
+
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
