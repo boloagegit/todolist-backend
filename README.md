@@ -17,6 +17,7 @@ docker compose up -d
 - gradle
 - mockk
 - swagger2
+- arrow-kt
 
 ## Note!
 Because the developer himself uses the macbook m1, the base image preset by the dockerfile uses the ARM architecture, please adjust it according to your own development environment
