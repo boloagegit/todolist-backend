@@ -1,3 +1,5 @@
+![build and deploy workflow](https://github.com/boloagegit/todolist-backend/actions/workflows/build-and-deploy.yml/badge.svg)
+
 # todolist-backend
 A simple to-do list backend example project develop by spring boot with kotlin.
 
