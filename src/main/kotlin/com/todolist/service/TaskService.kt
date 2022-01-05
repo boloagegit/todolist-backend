@@ -23,14 +23,13 @@ class TaskService(@Autowired val taskRepository: TaskRepository) {
     }
 
     fun updateTask(id: Long, task: Task): Either<TaskServiceError, Task> =
-            Either.conditionally(taskRepository.existsById(id), { TaskServiceError.DataNotFoundByIdError(id) }, {})
-                    .flatMap {
-                        Either.catch {
-                            taskRepository.save(task)
-                        }.mapLeft {
-                            TaskServiceError.DatabaseError(it.message)
-                        }
-                    }
+            checkDataExistsById(id).flatMap {
+                Either.catch {
+                    taskRepository.save(task)
+                }.mapLeft {
+                    TaskServiceError.DatabaseError(it.message)
+                }
+            }
 
     fun deleteTask(id: Long) {
         if (!taskRepository.existsById(id)) {
@@ -39,4 +38,6 @@ class TaskService(@Autowired val taskRepository: TaskRepository) {
 
         taskRepository.deleteById(id)
     }
+
+    private fun checkDataExistsById(id: Long) = Either.conditionally(taskRepository.existsById(id), { TaskServiceError.DataNotFoundByIdError(id) }, {})
 }
