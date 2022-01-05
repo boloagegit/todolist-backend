@@ -9,7 +9,7 @@ A simple to-do list backend example project develop by spring boot with kotlin.
 # build by gradle
 gradle build
 
-# build by docker-compos
+# build by docker-compose
 docker compose up -d
 ```
 
